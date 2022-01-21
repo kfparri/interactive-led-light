@@ -1,0 +1,37 @@
+Tables
+
+Command
+-----------------
+ID
+Timestamp
+Command
+ProcessStatus
+
+
+-------------------------------------------------------
+SQL commands
+-------------------------------------------------------
+
+-- Create Database
+CREATE DATABASE led_lights;
+
+-- Create user account led_lights\LED_lights1
+
+-- Command table
+CREATE TABLE `led_lights`.`Command` (
+  `ID` INT NOT NULL AUTO_INCREMENT,
+  `Timestamp` DATETIME NOT NULL,
+  `Command` VARCHAR(200) NULL,
+  `ProcessStatus` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`ID`));
+
+
+CREATE TABLE `led_lights`.`api_keys` (
+  `ID` INT NOT NULL AUTO_INCREMENT,
+  `api_key` VARCHAR(45) NOT NULL,
+  `created_time` DATETIME NOT NULL,
+  `active` TINYINT NOT NULL DEFAULT 0,
+  `last_used` DATETIME NOT NULL,
+  PRIMARY KEY (`ID`),
+  UNIQUE INDEX `ID_UNIQUE` (`ID` ASC) VISIBLE,
+  UNIQUE INDEX `api_key_UNIQUE` (`api_key` ASC) VISIBLE);
